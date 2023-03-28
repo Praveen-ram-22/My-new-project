@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Edit Doctor</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container mt-5">
+		<h3 class="mb-3"> Edit Doctor</h3>
+		<form action="#" th:action="@{/EditDoctor}" th:object="${doctor}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input type="text" class="form-control" th:field="*{Dname}" required/>
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone</label>
+				<input type="text" class="form-control" th:field="*{number}" required/>			
+				</div>
+			  <div class="form-group">
+				<label for="specialization">Specialization</label>
+				<input type="text" class="form-control" th:field="*{specilization}" required/>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	</div>
+
+</body>
+</html>

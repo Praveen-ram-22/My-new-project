@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointment View Details Table</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+ <body>
+  <div class="container mt-5">
+    <h2>Appointment View Details Table</h2>
+    <table class="table table-striped">
+      <thead class="btn-primary">
+        <tr>
+			<th>Id</th>
+          <th>Doctor Name</th>
+         <th>patient Name</th>
+          <th>Date And Time</th>
+         <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="appointment : ${listAppointment}">
+			<td th:text="${appointment.id}"></td>
+          <td th:text="${appointment.Dname}"></td>
+           <td th:text="${appointment.pname}"></td>
+           <td th:text="${appointment.DateTime}"></td>
+           
+          <td>
+            <a th:href="@{/editAppointment/{id}(id=${appointment.id})}"class="btn ">&#x270E;</a>
+            <a th:href="@{/Appointment/{id}(id=${appointment.id})}" class="btn " onclick="return confirm('Are you sure you want to delete this doctor?')">&#x1F5D1</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a th:href="@{/Appointment}" class="btn btn-success">Add Appointment</a>
+  </div>
+   </body>
+</html>
